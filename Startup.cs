@@ -8,6 +8,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using StockMVC.Models;
+using StockMVC.Data;
+using StockMVC.Interfaces;
+using StockMVC.Repositories;
 
 namespace StockMVC
 {
@@ -24,6 +29,8 @@ namespace StockMVC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddScoped<IUnit, UnitRepository>();
+            services.AddDbContext<StockContext>(options => options.UseSqlServer(Configuration.GetConnectionString("dbconn")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
