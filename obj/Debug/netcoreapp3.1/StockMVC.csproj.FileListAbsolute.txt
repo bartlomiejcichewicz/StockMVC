@@ -429,3 +429,7 @@ C:\Users\Yoshu\Desktop\StockMVC\obj\Debug\netcoreapp3.1\Razor\Views\Unit\Create.
 C:\Users\Yoshu\Desktop\StockMVC\obj\Debug\netcoreapp3.1\Razor\Views\Unit\Details.cshtml.g.cs
 C:\Users\Yoshu\Desktop\StockMVC\obj\Debug\netcoreapp3.1\Razor\Views\Unit\Edit.cshtml.g.cs
 C:\Users\Yoshu\Desktop\StockMVC\obj\Debug\netcoreapp3.1\Razor\Views\Unit\Delete.cshtml.g.cs
+C:\Users\Yoshu\Desktop\StockMVC\bin\Debug\netcoreapp3.1\Tools.dll
+C:\Users\Yoshu\Desktop\StockMVC\bin\Debug\netcoreapp3.1\Tools.pdb
+C:\Users\Yoshu\Desktop\StockMVC\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_topBar.cshtml.g.cs
+C:\Users\Yoshu\Desktop\StockMVC\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_bottomBar.cshtml.g.cs

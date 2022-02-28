@@ -9,21 +9,32 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Bar.Tools;
 
 namespace StockMVC.Controllers
 {
     public class UnitController : Controller
     {
-
-        public IActionResult Index()
-        {
-            List<Unit> units = _unitRepo.GetItems();
-            return View(units);
-        }
         private readonly IUnit _unitRepo;
-        public UnitController(IUnit unitrepo)
+        public UnitController(IUnit unitrepo) // repozytorium przekazane w dependency injection
         {
             _unitRepo = unitrepo;
+        }
+       
+        public IActionResult Index(string sortExpression = "", string SearchText = "", int pg = 1, int pageSize = 5)
+        {
+            SortModel sortModel = new SortModel();
+            sortModel.AddColumn("name");
+            sortModel.AddColumn("description");
+            sortModel.ApplySort(sortExpression);
+            ViewData["sortModel"] = sortModel;
+            ViewBag.SearchText = SearchText;
+            PaginatedList<Unit> units = _unitRepo.GetItems(sortModel.SortedProperty, sortModel.SortedOrder, SearchText, pg, pageSize);
+            var pager = new PagerModel(units.TotalRecords, pg, pageSize);
+            pager.SortExpression = sortExpression;
+            this.ViewBag.Pager = pager;
+            TempData["CurrentPage"] = pg;
+            return View(units);
         }
         public IActionResult Create()
         {
@@ -33,15 +44,39 @@ namespace StockMVC.Controllers
         [HttpPost]
         public IActionResult Create(Unit unit)
         {
+            bool bolret = false;
+            string errMessage = "";
             try
             {
-                unit = _unitRepo.Create(unit);
+                if (unit.Description.Length < 5 || unit.Description == null)
+                {
+                    errMessage = "Product description must be at least 5 characters!";
+                }
+                if (_unitRepo.IsUnitNameExists(unit.Name)==true)
+                {
+                    errMessage = errMessage + " " + " Product name " + unit.Name + "already exists!";
+                }
+                if (errMessage == "")
+                {
+                    unit = _unitRepo.Create(unit);
+                    bolret = true;
+                }
             }
-            catch
+            catch (Exception ex)
             {
-
+                errMessage = errMessage + " " + ex.Message;
             }
-            return RedirectToAction(nameof(Index));
+            if (bolret == false)
+            {
+                TempData["ErrorMessage"] = errMessage;
+                ModelState.AddModelError("", errMessage);
+                return View(unit);
+            } 
+            else
+            {
+                TempData["SuccessMessage"] = "Product " + unit.Name + " has been added to the database!";
+                return RedirectToAction(nameof(Index));
+            }
         }
         public IActionResult Details(int id)
         {
@@ -51,24 +86,55 @@ namespace StockMVC.Controllers
         public IActionResult Edit(int id)
         {
             Unit unit = _unitRepo.GetUnit(id);
+            TempData.Keep();
             return View(unit);
         }
         [HttpPost]
         public IActionResult Edit(Unit unit)
         {
+            bool bolret = false;
+            string errMessage = "";
             try
             {
-                unit = _unitRepo.Edit(unit);
+                if (unit.Description.Length < 5 || unit.Description == null)
+                {
+                    errMessage = "Product description must be at least 5 characters!";
+                }
+                if (_unitRepo.IsUnitNameExists(unit.Name, unit.Id) == true)
+                {
+                    errMessage = errMessage + " " + " Product name " + unit.Name + "already exists!";
+                }
+                if (errMessage == "")
+                {
+                    unit = _unitRepo.Edit(unit);
+                    TempData["SuccesMessage"] = "Product " + unit.Name + " has been edited!";
+                    bolret = true;
+                }
             }
-            catch
+            catch (Exception ex)
             {
-
+                errMessage = errMessage + " " + ex.Message;
             }
-            return RedirectToAction(nameof(Index));
+            int currentPage = 1;
+            if (TempData["CurrentPage"] != null)
+            {
+                currentPage = (int)TempData["CurrentPage"];
+            }
+            if (bolret == false)
+            {
+                TempData["ErrorMessage"] = errMessage;
+                ModelState.AddModelError("", errMessage);
+                return View(unit);
+            }
+            else
+            {
+                return RedirectToAction(nameof(Index));
+            }
         }
         public IActionResult Delete (int id)
         {
             Unit unit = _unitRepo.GetUnit(id);
+            TempData.Keep();
             return View(unit);
         }
         [HttpPost]
@@ -78,11 +144,18 @@ namespace StockMVC.Controllers
             {
                 unit = _unitRepo.Delete(unit);
             }
-            catch
+            catch(Exception ex)
             {
-
+                string errMessage = ex.Message;
+                TempData["ErrorMessage"] = errMessage;
+                ModelState.AddModelError("", errMessage);
+                return View(unit);
             }
-            return RedirectToAction(nameof(Index));
+            int currentPage = 1;
+            if (TempData["CurrentPage"] != null)
+                currentPage = (int)TempData["CurrentPage"];
+            TempData["SuccessMessage"] = "Product " + unit.Name + " has been deleted!";
+            return RedirectToAction(nameof(Index), new { pg = currentPage });
         }
     }
 }
