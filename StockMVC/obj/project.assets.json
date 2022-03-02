@@ -8751,11 +8751,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Yoshu\\Desktop\\StockMVC\\StockMVC.csproj",
+      "projectUniqueName": "C:\\Users\\Yoshu\\Desktop\\123\\StockMVC\\StockMVC.csproj",
       "projectName": "StockMVC",
-      "projectPath": "C:\\Users\\Yoshu\\Desktop\\StockMVC\\StockMVC.csproj",
+      "projectPath": "C:\\Users\\Yoshu\\Desktop\\123\\StockMVC\\StockMVC.csproj",
       "packagesPath": "C:\\Users\\Yoshu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Yoshu\\Desktop\\StockMVC\\obj\\",
+      "outputPath": "C:\\Users\\Yoshu\\Desktop\\123\\StockMVC\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
@@ -8776,8 +8776,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\Yoshu\\Desktop\\Tools\\Tools.csproj": {
-              "projectPath": "C:\\Users\\Yoshu\\Desktop\\Tools\\Tools.csproj"
+            "C:\\Users\\Yoshu\\Desktop\\123\\Tools\\Tools.csproj": {
+              "projectPath": "C:\\Users\\Yoshu\\Desktop\\123\\Tools\\Tools.csproj"
             }
           }
         }
