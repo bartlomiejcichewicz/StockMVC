@@ -13,6 +13,7 @@ using StockMVC.Models;
 using StockMVC.Data;
 using StockMVC.Interfaces;
 using StockMVC.Repositories;
+using Microsoft.AspNetCore.Identity;
 
 namespace StockMVC
 {

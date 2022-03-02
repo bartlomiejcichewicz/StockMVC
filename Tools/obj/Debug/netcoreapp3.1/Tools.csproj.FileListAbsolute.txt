@@ -8,3 +8,13 @@ C:\Users\Yoshu\Desktop\Tools\obj\Debug\netcoreapp3.1\Tools.AssemblyInfo.cs
 C:\Users\Yoshu\Desktop\Tools\obj\Debug\netcoreapp3.1\Tools.csproj.CoreCompileInputs.cache
 C:\Users\Yoshu\Desktop\Tools\obj\Debug\netcoreapp3.1\Tools.dll
 C:\Users\Yoshu\Desktop\Tools\obj\Debug\netcoreapp3.1\Tools.pdb
+C:\Users\Yoshu\Desktop\StockMVC\Tools\bin\Debug\netcoreapp3.1\Tools.deps.json
+C:\Users\Yoshu\Desktop\StockMVC\Tools\bin\Debug\netcoreapp3.1\Tools.dll
+C:\Users\Yoshu\Desktop\StockMVC\Tools\bin\Debug\netcoreapp3.1\Tools.pdb
+C:\Users\Yoshu\Desktop\StockMVC\Tools\obj\Debug\netcoreapp3.1\Tools.csproj.AssemblyReference.cache
+C:\Users\Yoshu\Desktop\StockMVC\Tools\obj\Debug\netcoreapp3.1\Tools.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Yoshu\Desktop\StockMVC\Tools\obj\Debug\netcoreapp3.1\Tools.AssemblyInfoInputs.cache
+C:\Users\Yoshu\Desktop\StockMVC\Tools\obj\Debug\netcoreapp3.1\Tools.AssemblyInfo.cs
+C:\Users\Yoshu\Desktop\StockMVC\Tools\obj\Debug\netcoreapp3.1\Tools.csproj.CoreCompileInputs.cache
+C:\Users\Yoshu\Desktop\StockMVC\Tools\obj\Debug\netcoreapp3.1\Tools.dll
+C:\Users\Yoshu\Desktop\StockMVC\Tools\obj\Debug\netcoreapp3.1\Tools.pdb

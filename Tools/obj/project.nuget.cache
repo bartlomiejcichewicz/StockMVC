@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YejV6AqwMju475Mopt+ngvL/J06ZTidXu8ibxd4UvK6foVJ2D0XRQIdTGxWr+FsYG78waWfWPTLSJueLpqsZXg==",
+  "dgSpecHash": "d5WXrvxBEiN7XRIyAtlIyHtilkIHHMzuR3KK9VjNZqfr6BXiN7siwNQQOR1IeojuQLy9Wv4sALQQ8cpCjB5Wdg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Yoshu\\Desktop\\123\\Tools\\Tools.csproj",
+  "projectFilePath": "C:\\Users\\Yoshu\\Desktop\\StockMVC\\Tools\\Tools.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
