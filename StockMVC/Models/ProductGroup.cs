@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace StockMVC.Models
 {
-    public class Unit
+    public class ProductGroup
     {
+        [Key]
         public int Id { get; set; }
         [Required]
         [StringLength(25)]
@@ -15,5 +16,6 @@ namespace StockMVC.Models
         [Required]
         [StringLength(75)]
         public string Description { get; set; }
+
     }
 }

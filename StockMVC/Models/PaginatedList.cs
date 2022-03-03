@@ -13,7 +13,6 @@ namespace StockMVC.Models
             TotalRecords = source.Count;
             var items = source.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
             this.AddRange(items);
-
         }
     }
 }

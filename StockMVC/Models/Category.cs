@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StockMVC.Models
 {
-    public class Unit
+    public class Category
     {
         public int Id { get; set; }
         [Required]

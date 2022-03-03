@@ -868,3 +868,13 @@ C:\Users\Yoshu\Desktop\StockMVC\StockMVC\obj\Debug\netcoreapp3.1\StockMVC.csproj
 C:\Users\Yoshu\Desktop\StockMVC\StockMVC\obj\Debug\netcoreapp3.1\StockMVC.dll
 C:\Users\Yoshu\Desktop\StockMVC\StockMVC\obj\Debug\netcoreapp3.1\StockMVC.pdb
 C:\Users\Yoshu\Desktop\StockMVC\StockMVC\obj\Debug\netcoreapp3.1\StockMVC.genruntimeconfig.cache
+C:\Users\Yoshu\Desktop\StockMVC\StockMVC\obj\Debug\netcoreapp3.1\Razor\Views\Category\Create.cshtml.g.cs
+C:\Users\Yoshu\Desktop\StockMVC\StockMVC\obj\Debug\netcoreapp3.1\Razor\Views\Category\Delete.cshtml.g.cs
+C:\Users\Yoshu\Desktop\StockMVC\StockMVC\obj\Debug\netcoreapp3.1\Razor\Views\Category\Details.cshtml.g.cs
+C:\Users\Yoshu\Desktop\StockMVC\StockMVC\obj\Debug\netcoreapp3.1\Razor\Views\Category\Edit.cshtml.g.cs
+C:\Users\Yoshu\Desktop\StockMVC\StockMVC\obj\Debug\netcoreapp3.1\Razor\Views\Category\Index.cshtml.g.cs
+C:\Users\Yoshu\Desktop\StockMVC\StockMVC\obj\Debug\netcoreapp3.1\Razor\Views\Brand\Create.cshtml.g.cs
+C:\Users\Yoshu\Desktop\StockMVC\StockMVC\obj\Debug\netcoreapp3.1\Razor\Views\Brand\Delete.cshtml.g.cs
+C:\Users\Yoshu\Desktop\StockMVC\StockMVC\obj\Debug\netcoreapp3.1\Razor\Views\Brand\Details.cshtml.g.cs
+C:\Users\Yoshu\Desktop\StockMVC\StockMVC\obj\Debug\netcoreapp3.1\Razor\Views\Brand\Edit.cshtml.g.cs
+C:\Users\Yoshu\Desktop\StockMVC\StockMVC\obj\Debug\netcoreapp3.1\Razor\Views\Brand\Index.cshtml.g.cs

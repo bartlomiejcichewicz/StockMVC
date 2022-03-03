@@ -25,8 +25,21 @@
                         <li class="nav-item">
                             <a class="nav-link @menuTextColor" asp-area="" asp-controller="Home" asp-action="Index">Main</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link @menuTextColor" asp-area="" asp-controller="Unit" asp-action="Index">Products Database</a>
+                        <li class="dropdown nav-item pr-2">
+                            <a class="nav-link dropdown-toggle @menuTextColor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                Menu
+                            </a>
+                            <ul class="dropdown-menu" style="background: linear-gradient(to right, black, red);">
+                                <li class="nav-item">
+                                    <a class="nav-link @menuTextColor" asp-area="" asp-controller="Unit" asp-action="Index">Products</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link @menuTextColor" asp-area="" asp-controller="Category" asp-action="Index">Categories</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link @menuTextColor" asp-area="" asp-controller="Brand" asp-action="Index">Brands</a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link @menuTextColor" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
