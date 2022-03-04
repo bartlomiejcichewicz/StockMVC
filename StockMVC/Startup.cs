@@ -28,11 +28,8 @@ namespace StockMVC
         {
             services.AddControllersWithViews();
             services.AddScoped<IUnit, UnitRepository>();
-            services.AddScoped<ICategory, CategoryRepository>();
-            services.AddScoped<IBrand, BrandRepository>();
-            services.AddScoped<IProductProfile, ProductProfileRepository>();
-            services.AddScoped<IProductGroup, ProductGroupRepository>();
-            services.AddScoped<IProductAttribute, ProductAttributeRepository>();
+
+            services.AddScoped<IProduct, ProductRepository>();
             services.AddDbContext<StockContext>(options => options.UseSqlServer(Configuration.GetConnectionString("dbconn")));
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

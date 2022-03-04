@@ -14,10 +14,6 @@ namespace StockMVC.Data
 
         }
         public virtual DbSet<Unit> Units { get; set; }
-        public virtual DbSet<Brand> Brands { get; set; }
-        public virtual DbSet<Category> Categories { get; set; }
-        public virtual DbSet<ProductGroup> ProductGroups { get; set; }
-        public virtual DbSet<ProductProfile> ProductProfiles { get; set; }
-        public virtual DbSet<ProductAttribute> ProductAttributes { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
     }
 }

@@ -48,10 +48,10 @@ namespace StockMVC.Controllers
             string errMessage = "";
             try
             {
-                if (unit.Description.Length < 4 || unit.Description == null)
-                    errMessage = "Unit Description Must be atleast 4 Characters";
+                if (unit.Description.Length < 5 || unit.Description == null)
+                    errMessage = "Unit description must be at least 5 characters!";
                 if (_unitRepo.IsUnitNameExists(unit.Name) == true)
-                    errMessage = errMessage + " " + " Unit Name " + unit.Name + " Exists Already";
+                    errMessage = errMessage + " " + " Name " + unit.Name + " already exists!";
                 if (errMessage == "")
                 {
                     unit = _unitRepo.Create(unit);
