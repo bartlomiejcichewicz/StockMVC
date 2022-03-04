@@ -34,10 +34,11 @@
             <label asp-for="UnitId" class="control-label"></label>
             <input asp-for="@Model.Units.Name" class="form-control" readonly />
         </div>
-        <div class="form-group btn-group">
-            <input type="submit" value="Delete" class="btn btn-danger" />
-            <a class="btn btn-secondary" asp-action="index" asp-route-id="@TempData.Peek("CurrentPage")">Back</a>
-        </div>
+        <div class="text-danger btn-group" asp-validation-summary="ModelOnly"></div>
+        <input type="hidden" asp-for="Code" />
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a class="btn btn-secondary" asp-action="index"
+           asp-route-pg="@TempData["CurrentPage"]">Back</a>
     </div>
 </form>
 @section Scripts {

@@ -19,7 +19,7 @@ namespace StockMVC.Models
         [StringLength(255)]
         public String Description { get; set; }
         [Required]
-        [Column(TypeName="smallmoney")]
+        [Column(TypeName = "smallmoney")]
         public decimal Cost { get; set; }
         [Required]
         [Column(TypeName = "smallmoney")]

@@ -17,11 +17,11 @@ namespace StockMVC.Repositories
         {
             _context = context;
         }
-        public Product Create(Product category)
+        public Product Create(Product product)
         {
-            _context.Products.Add(category);
+            _context.Products.Add(product);
             _context.SaveChanges();
-            return category;
+            return product;
         }
         public Product Delete(Product Product)
         {
@@ -31,12 +31,12 @@ namespace StockMVC.Repositories
             _context.SaveChanges();
             return Product;
         }
-        public Product Edit(Product category)
+        public Product Edit(Product product)
         {
-            _context.Products.Attach(category);
-            _context.Entry(category).State = EntityState.Modified;
+            _context.Products.Attach(product);
+            _context.Entry(product).State = EntityState.Modified;
             _context.SaveChanges();
-            return category;
+            return product;
         }
         private List<Product> DoSort(List<Product> items, string SortProperty, SortOrder sortOrder)
         {

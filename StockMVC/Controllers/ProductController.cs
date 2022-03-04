@@ -56,9 +56,9 @@ namespace StockMVC.Controllers
             try
             {
                 if (product.Description.Length < 5 || product.Description == null)
-                    errMessage = "Product Description Must be atleast 5 Characters";
+                    errMessage = "Product description must be at least 5 characters";
                 if (_productRepo.IsItemExists(product.Name) == true)
-                    errMessage = errMessage + " " + " Product Name " + product.Name + " Exists Already";
+                    errMessage = errMessage + " " + " Product name " + product.Name + " already exists!";
                 if (errMessage == "")
                 {
                     product = _productRepo.Create(product);
@@ -101,7 +101,7 @@ namespace StockMVC.Controllers
             try
             {
                 if (product.Description.Length < 5 || product.Description == null)
-                    errMessage = "Product description must be at least 5 characters";
+                    errMessage = "Product description must be at least 5 characters!";
                 if (_productRepo.IsItemExists(product.Name, product.Code) == true)
                     errMessage = errMessage + "Product Name " + product.Name + " already exists!";
                 if (errMessage == "")

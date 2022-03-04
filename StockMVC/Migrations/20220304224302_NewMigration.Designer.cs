@@ -9,7 +9,7 @@ using StockMVC.Data;
 namespace StockMVC.Migrations
 {
     [DbContext(typeof(StockContext))]
-    [Migration("20220304123012_NewMigration")]
+    [Migration("20220304224302_NewMigration")]
     partial class NewMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

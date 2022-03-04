@@ -14,6 +14,8 @@ using StockMVC.Data;
 using StockMVC.Interfaces;
 using StockMVC.Repositories;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
+using System.Globalization;
 
 namespace StockMVC
 {
