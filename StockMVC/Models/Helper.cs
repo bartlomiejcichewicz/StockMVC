@@ -18,10 +18,9 @@ namespace StockMVC.Models
             catch
             {
                 retString = fullTypeName;
-                return retString;
             }
             retString = retString.Replace("]", "");
             return retString;
-    }
+        }
     }
 }

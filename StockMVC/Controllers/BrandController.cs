@@ -16,11 +16,10 @@ namespace StockMVC.Controllers
     public class BrandController : Controller
     {
         private readonly IBrand _Repo;
-        public BrandController(IBrand repo) // repozytorium przekazane w dependency injection
+        public BrandController(IBrand repo)
         {
             _Repo = repo;
         }
-
         public IActionResult Index(string sortExpression = "", string SearchText = "", int pg = 1, int pageSize = 5)
         {
             SortModel sortModel = new SortModel();
@@ -49,13 +48,9 @@ namespace StockMVC.Controllers
             try
             {
                 if (item.Description.Length < 5 || item.Description == null)
-                {
-                    errMessage = "Product description must be at least 5 characters!";
-                }
+                    errMessage = "Description must be at least 5 Characters!";
                 if (_Repo.IsItemExists(item.Name) == true)
-                {
-                    errMessage = errMessage + " " + " Product name " + item.Name + "already exists!";
-                }
+                    errMessage = errMessage + " " + " Name " + item.Name + " already exists!";
                 if (errMessage == "")
                 {
                     item = _Repo.Create(item);
@@ -74,7 +69,7 @@ namespace StockMVC.Controllers
             }
             else
             {
-                TempData["SuccessMessage"] = "Product " + item.Name + " has been added to the database!";
+                TempData["SuccessMessage"] = "" + item.Name + " has been added to the database!";
                 return RedirectToAction(nameof(Index));
             }
         }
@@ -97,17 +92,13 @@ namespace StockMVC.Controllers
             try
             {
                 if (item.Description.Length < 5 || item.Description == null)
-                {
-                    errMessage = "Product description must be at least 5 characters!";
-                }
+                    errMessage = "Description must be at least 5 characters!";
                 if (_Repo.IsItemExists(item.Name, item.Id) == true)
-                {
-                    errMessage = errMessage + " " + " Product name " + item.Name + "already exists!";
-                }
+                    errMessage = errMessage + item.Name + " already exists!";
                 if (errMessage == "")
                 {
                     item = _Repo.Edit(item);
-                    TempData["SuccesMessage"] = "Product " + item.Name + " has been edited!";
+                    TempData["SuccessMessage"] = "Changes in " + item.Name + " has been saved!";
                     bolret = true;
                 }
             }
@@ -117,9 +108,7 @@ namespace StockMVC.Controllers
             }
             int currentPage = 1;
             if (TempData["CurrentPage"] != null)
-            {
                 currentPage = (int)TempData["CurrentPage"];
-            }
             if (bolret == false)
             {
                 TempData["ErrorMessage"] = errMessage;
@@ -127,9 +116,7 @@ namespace StockMVC.Controllers
                 return View(item);
             }
             else
-            {
-                return RedirectToAction(nameof(Index));
-            }
+                return RedirectToAction(nameof(Index), new { pg = currentPage });
         }
         public IActionResult Delete(int id)
         {
@@ -150,11 +137,12 @@ namespace StockMVC.Controllers
                 TempData["ErrorMessage"] = errMessage;
                 ModelState.AddModelError("", errMessage);
                 return View(item);
+
             }
             int currentPage = 1;
             if (TempData["CurrentPage"] != null)
                 currentPage = (int)TempData["CurrentPage"];
-            TempData["SuccessMessage"] = "Product " + item.Name + " has been deleted!";
+            TempData["SuccessMessage"] = "Deleted succesfully!";
             return RedirectToAction(nameof(Index), new { pg = currentPage });
         }
     }

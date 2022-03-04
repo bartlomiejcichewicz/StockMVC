@@ -16,10 +16,10 @@ namespace StockMVC.Models
         public int EndPage { get; private set; }
         public int StartRecord { get; private set; }
         public int EndRecord { get; private set; }
-        public string Action { get; set; }
+        public string Action { get; set; } = "Index";
         public string SearchText { get; set; }
         public string SortExpression { get; set; }
-        public PagerModel(int totalItems, int currentPage, int pageSize)
+        public PagerModel(int totalItems, int currentPage, int pageSize = 5)
         {
             this.TotalItems = totalItems;
             this.CurrentPage = currentPage;
@@ -28,7 +28,7 @@ namespace StockMVC.Models
             TotalPages = totalPages;
             int startPage = currentPage - 5;
             int endPage = currentPage + 4;
-            if(startPage <= 0)
+            if (startPage <= 0)
             {
                 endPage = endPage - (startPage - 1);
                 startPage = 1;
@@ -37,16 +37,12 @@ namespace StockMVC.Models
             {
                 endPage = totalPages;
                 if (endPage > 10)
-                {
                     startPage = endPage - 9;
-                }
             }
             StartRecord = (CurrentPage - 1) * PageSize + 1;
             EndRecord = StartRecord - 1 + PageSize;
             if (EndRecord > TotalItems)
-            {
                 EndRecord = TotalItems;
-            }
             if (TotalItems == 0)
             {
                 StartPage = 0;
@@ -63,16 +59,14 @@ namespace StockMVC.Models
         public List<SelectListItem> GetPageSizes()
         {
             var pageSizes = new List<SelectListItem>();
-            for (int lp = 5; lp <= 50; lp +=5)
+            for (int lp = 5; lp <= 50; lp += 5)
             {
                 if (lp == this.PageSize)
                 {
                     pageSizes.Add(new SelectListItem(lp.ToString(), lp.ToString(), true));
                 }
                 else
-                {
                     pageSizes.Add(new SelectListItem(lp.ToString(), lp.ToString()));
-                }
             }
             return pageSizes;
         }

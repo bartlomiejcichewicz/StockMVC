@@ -17,14 +17,12 @@ namespace StockMVC.Repositories
         {
             _context = context;
         }
-
         public Category Create(Category category)
         {
             _context.Categories.Add(category);
             _context.SaveChanges();
             return category;
         }
-
         public Category Delete(Category category)
         {
             _context.Categories.Attach(category);
@@ -32,7 +30,6 @@ namespace StockMVC.Repositories
             _context.SaveChanges();
             return category;
         }
-
         public Category Edit(Category category)
         {
             _context.Categories.Attach(category);
@@ -63,17 +60,15 @@ namespace StockMVC.Repositories
             List<Category> items;
             if (SearchText != "" && SearchText != null)
             {
-                items = _context.Categories.Where(n => n.Name.Contains(SearchText) || n.Description.Contains(SearchText)).ToList();
+                items = _context.Categories.Where(n => n.Name.Contains(SearchText) || n.Description.Contains(SearchText))
+                    .ToList();
             }
             else
-            {
                 items = _context.Categories.ToList();
-            }
             items = DoSort(items, SortProperty, sortOrder);
             PaginatedList<Category> retItems = new PaginatedList<Category>(items, pageIndex, pageSize);
             return retItems;
         }
-
         public Category GetItem(int id)
         {
             Category item = _context.Categories.Where(u => u.Id == id).FirstOrDefault();

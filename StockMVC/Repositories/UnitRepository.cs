@@ -17,14 +17,12 @@ namespace StockMVC.Repositories
         {
             _context = context;
         }
-
         public Unit Create(Unit unit)
         {
             _context.Units.Add(unit);
             _context.SaveChanges();
             return unit;
         }
-
         public Unit Delete(Unit unit)
         {
             _context.Units.Attach(unit);
@@ -32,7 +30,6 @@ namespace StockMVC.Repositories
             _context.SaveChanges();
             return unit;
         }
-
         public Unit Edit(Unit unit)
         {
             _context.Units.Attach(unit);
@@ -42,6 +39,7 @@ namespace StockMVC.Repositories
         }
         private List<Unit> DoSort(List<Unit> units, string SortProperty, SortOrder sortOrder)
         {
+
             if (SortProperty.ToLower() == "name")
             {
                 if (sortOrder == SortOrder.Ascending)
@@ -58,22 +56,20 @@ namespace StockMVC.Repositories
             }
             return units;
         }
-        public PaginatedList<Unit> GetItems(string SortProperty, SortOrder sortOrder, string SearchText="", int pageIndex = 1, int pageSize = 5)
+        public PaginatedList<Unit> GetItems(string SortProperty, SortOrder sortOrder, string SearchText = "", int pageIndex = 1, int pageSize = 5)
         {
             List<Unit> units;
             if (SearchText != "" && SearchText != null)
             {
-                units = _context.Units.Where(n => n.Name.Contains(SearchText) || n.Description.Contains(SearchText)).ToList();
+                units = _context.Units.Where(n => n.Name.Contains(SearchText) || n.Description.Contains(SearchText))
+                    .ToList();
             }
             else
-            {
                 units = _context.Units.ToList();
-            }
             units = DoSort(units, SortProperty, sortOrder);
             PaginatedList<Unit> retUnits = new PaginatedList<Unit>(units, pageIndex, pageSize);
             return retUnits;
         }
-
         public Unit GetUnit(int id)
         {
             Unit unit = _context.Units.Where(u => u.Id == id).FirstOrDefault();

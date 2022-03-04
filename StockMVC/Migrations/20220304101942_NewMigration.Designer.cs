@@ -9,8 +9,8 @@ using StockMVC.Data;
 namespace StockMVC.Migrations
 {
     [DbContext(typeof(StockContext))]
-    [Migration("20220303082830_AddingSupportTables")]
-    partial class AddingSupportTables
+    [Migration("20220304101942_NewMigration")]
+    partial class NewMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

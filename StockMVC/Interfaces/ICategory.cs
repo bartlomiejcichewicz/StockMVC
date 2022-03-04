@@ -11,11 +11,10 @@ namespace StockMVC.Interfaces
     {
         PaginatedList<Category> GetItems(string SortProperty, SortOrder sortOrder, string SearchText = "", int pageIndex = 1, int pageSize = 5);
         Category GetItem(int id);
-        Category Create(Category category);
-        Category Edit(Category category);
-        Category Delete(Category category);
+        Category Create(Category unit);
+        Category Edit(Category unit);
+        Category Delete(Category unit);
         public bool IsItemExists(string name);
         public bool IsItemExists(string name, int Id);
-
     }
 }

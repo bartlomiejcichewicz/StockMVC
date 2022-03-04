@@ -17,28 +17,25 @@ namespace StockMVC.Repositories
         {
             _context = context;
         }
-
-        public Brand Create(Brand brand)
+        public Brand Create(Brand Brand)
         {
-            _context.Brands.Add(brand);
+            _context.Brands.Add(Brand);
             _context.SaveChanges();
-            return brand;
+            return Brand;
         }
-
-        public Brand Delete(Brand brand)
+        public Brand Delete(Brand Brand)
         {
-            _context.Brands.Attach(brand);
-            _context.Entry(brand).State = EntityState.Deleted;
+            _context.Brands.Attach(Brand);
+            _context.Entry(Brand).State = EntityState.Deleted;
             _context.SaveChanges();
-            return brand;
+            return Brand;
         }
-
-        public Brand Edit(Brand brand)
+        public Brand Edit(Brand Brand)
         {
-            _context.Brands.Attach(brand);
-            _context.Entry(brand).State = EntityState.Modified;
+            _context.Brands.Attach(Brand);
+            _context.Entry(Brand).State = EntityState.Modified;
             _context.SaveChanges();
-            return brand;
+            return Brand;
         }
         private List<Brand> DoSort(List<Brand> items, string SortProperty, SortOrder sortOrder)
         {
@@ -61,19 +58,18 @@ namespace StockMVC.Repositories
         public PaginatedList<Brand> GetItems(string SortProperty, SortOrder sortOrder, string SearchText = "", int pageIndex = 1, int pageSize = 5)
         {
             List<Brand> items;
+
             if (SearchText != "" && SearchText != null)
             {
-                items = _context.Brands.Where(n => n.Name.Contains(SearchText) || n.Description.Contains(SearchText)).ToList();
+                items = _context.Brands.Where(n => n.Name.Contains(SearchText) || n.Description.Contains(SearchText))
+                    .ToList();
             }
             else
-            {
                 items = _context.Brands.ToList();
-            }
             items = DoSort(items, SortProperty, sortOrder);
             PaginatedList<Brand> retItems = new PaginatedList<Brand>(items, pageIndex, pageSize);
             return retItems;
         }
-
         public Brand GetItem(int id)
         {
             Brand item = _context.Brands.Where(u => u.Id == id).FirstOrDefault();

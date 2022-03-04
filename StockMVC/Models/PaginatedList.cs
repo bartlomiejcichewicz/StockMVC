@@ -7,7 +7,7 @@ namespace StockMVC.Models
 {
     public class PaginatedList<T> : List<T>
     {
-        public int TotalRecords { get; set; }
+        public int TotalRecords { get; private set; }
         public PaginatedList(List<T> source, int pageIndex, int pageSize)
         {
             TotalRecords = source.Count;

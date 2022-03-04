@@ -16,5 +16,6 @@ namespace StockMVC.Models
         [Required]
         [StringLength(75)]
         public string Description { get; set; }
+
     }
 }
